@@ -1,0 +1,8 @@
+<p class="p-component text-lg font-semibold">Wybierz widok</p>
+<p-selectButton
+  [(ngModel)]="theme"
+  (ngModelChange)="changeTheme($event)"
+  [options]="themeOptions"
+  optionLabel="label"
+  optionValue="value"
+></p-selectButton>

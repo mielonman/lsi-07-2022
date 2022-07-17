@@ -1,0 +1,17 @@
+::ng-deep .p-datatable-thead th {
+    .pi-sort-alt {
+        opacity: 0;
+    }
+    &:hover .pi-sort-alt {
+        opacity: 1;
+    }
+}
+
+::ng-deep .p-paginator {
+    justify-content: end !important;
+    border-width: 0 !important;
+    padding-right: 0 !important;
+    .p-paginator-rpp-options {
+        margin-right: 0 !important;
+    }
+}

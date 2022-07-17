@@ -1,0 +1,11 @@
+<form [formGroup]="dateForm">
+  <p-calendar
+    formControlName="date"
+    dataType="string"
+    dateFormat="yy-mm-dd"
+    [showIcon]="true"
+    [showOnFocus]="false"
+    [minDate]="nbpMinDate"
+    [maxDate]="today"
+  ></p-calendar>
+</form>

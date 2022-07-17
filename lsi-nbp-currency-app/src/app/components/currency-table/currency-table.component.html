@@ -1,0 +1,52 @@
+<div class="grid">
+  <div class="col-12 md:col ml-2">
+    <lsi-clear-button (onClick)="clear(table)"></lsi-clear-button>
+  </div>
+
+  <div class="col-12 md:col text-right">
+    <lsi-calendar-input></lsi-calendar-input>
+  </div>
+</div>
+
+<p-table
+  #table
+  styleClass="p-datatable-gridlines"
+  [value]="data ?? []"
+  [columns]="columnsConfig"
+  [rows]="5"
+  [loading]="loading"
+  responsiveLayout="scroll"
+  [paginator]="true"
+  [showCurrentPageReport]="true"
+  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+  [rowsPerPageOptions]="[5, 10, 25, 50]"
+>
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th
+        *ngFor="let col of columns"
+        [pSortableColumn]="col.field"
+        [ngClass]="{'max-w-5rem': col.field !== 'currency'}"
+      >
+        <div class="flex justify-content-between align-items-center">
+          <div>
+            {{ col.header }}
+            <p-sortIcon [field]="col.field"></p-sortIcon>
+          </div>
+          <p-columnFilter
+            [type]="col.type"
+            [field]="col.field"
+            display="menu"
+          ></p-columnFilter>
+        </div>
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr>
+      <td *ngFor="let col of columns">
+        {{ rowData[col.field] }}
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
